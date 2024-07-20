@@ -1,4 +1,4 @@
-# Seu Projeto
+# vue3pinia
 
 ## Como começar
 
