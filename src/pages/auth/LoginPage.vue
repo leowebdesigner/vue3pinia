@@ -1,6 +1,6 @@
 <script lang="ts">
 import { ref } from 'vue';
-import { useUsersStore } from '../../stores/users';
+import { useUsersStore } from '../../store/users';
 
 export default {
   setup() {
