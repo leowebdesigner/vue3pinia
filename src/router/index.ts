@@ -1,45 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomePage from "../pages/HomePage.vue";
-import ContactPage from "../pages/ContactPage.vue";
-import LoginPage from "../pages/Auth/LoginPage.vue";
-import ForgotPassword from "../pages/Auth/ForgotPassword.vue";
-import AuthTemplate from "../layouts/AuthTemplate.vue";
-import DefaultTemplate from "../layouts/DefaultTemplate.vue";
-
-const routes = [
-  {
-    path: "/",
-    component: AuthTemplate,
-    children: [
-      {
-        path: "",
-        component: LoginPage,
-        name: "auth.login",
-      },
-      {
-        path: "esqueceu-senha",
-        component: ForgotPassword,
-        name: "forgot.password",
-      },
-    ],
-  },
-  {
-    path: "/admin",
-    component: DefaultTemplate,
-    children: [
-      {
-        path: "",
-        component: HomePage,
-        name: "admin.home",
-      },
-      {
-        path: "contato",
-        component: ContactPage,
-        name: "admin.contact",
-      },
-    ],
-  },
-];
+import routes from './routers.map.ts'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
