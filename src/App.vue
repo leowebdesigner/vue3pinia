@@ -5,8 +5,8 @@ import { RouterView } from 'vue-router'
 <template>
   <aside>
     <ul>
-      <a href="/">Home</a>
-      <a href="/contact">Contato</a>
+      <a href="/admin">Home</a>
+      <a href="/admin/contato">Contato</a>
     </ul>
   </aside>
 <RouterView />
