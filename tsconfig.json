@@ -1,4 +1,18 @@
 {
+  "compilerOptions": {
+    "target": "es2018",         
+    "module": "esnext",          
+    "moduleResolution": "node",  
+    "strict": true,             
+    "jsx": "preserve",           
+    "esModuleInterop": true,     
+    "skipLibCheck": true,        
+    "forceConsistentCasingInFileNames": true,  
+    "resolveJsonModule": true,  
+    "allowSyntheticDefaultImports": true,     
+    "isolatedModules": true,    
+    "strictNullChecks": true     
+  },
   "files": [],
   "references": [
     {
