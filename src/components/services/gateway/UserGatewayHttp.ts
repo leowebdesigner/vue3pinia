@@ -14,12 +14,7 @@ export default class UserGatewayHttp {
        }
 
        async getMe(): Promise<User> {
-         const token = localStorage.getItem(NAME_TOKEN, )
-         const response = await HttpAdapter.get('/me', {
-            headers: {
-               'Authorization': `Bearer ${token}`
-            }
-         })
+         const response = await HttpAdapter.withAuthorization().get('/me')
          const { id, name, email } = response.data.data
          return new User(id, name, email)
        }
