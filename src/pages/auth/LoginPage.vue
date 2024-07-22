@@ -1,6 +1,7 @@
 <script lang="ts">
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { useUsersStore } from '../../store/users';
+import router from '../../router';
 
 export default {
   setup() {
@@ -8,12 +9,24 @@ export default {
     const loading = ref(false)
     const email = ref('')
     const password = ref('')
+    const error = reactive({
+        msgError: '',
+        status: 0,
+        active: false
+    })
 
     const auth = () => {
       loading.value = true
       useStore.auth(email.value, password.value)
-      .then(response => console.log(response))
-      .catch(error => console.log(error))
+      .then(() => router.push({ name: 'admin.home' }))
+      .catch(responseError => {
+        error.msgError = 'Falha ao autenticar'
+        error.status = responseError.response.status
+        error.active = true
+
+        if(error.status === 422) error.msgError = 'Dados inválidos'
+        if(error.status === 404) error.msgError = 'Usuário não encontrado'
+      })
       .finally(() => loading.value = false)
     }
 
@@ -21,7 +34,8 @@ export default {
         email,
         password,
         loading,
-        auth
+        auth,
+        error
     }
   }
 }
@@ -31,6 +45,9 @@ export default {
     <div>
         <h1>Login</h1>
         <form action="#" method="post" @submit.prevent="auth">
+          <div v-if="error.active">
+            <p>{{ error.msgError }}</p>
+          </div>
             <input type="text" name="email" placeholder="E-mail" v-model="email">
             <input type="password" name="password" placeholder="Senha" v-model="password">
             <button type="submit" :class="{ disabled : loading }">
