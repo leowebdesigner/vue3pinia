@@ -12,7 +12,12 @@
     "resolveJsonModule": true,  
     "allowSyntheticDefaultImports": true,     
     "isolatedModules": true,    
-    "strictNullChecks": true     
+    "strictNullChecks": true,     
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "files": [],
   "references": [
