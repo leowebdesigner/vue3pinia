@@ -1,7 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import HttpClient from "./HttpClient";
 import { API_URL, NAME_TOKEN } from "../../../utils/constants";
-import { isGeneratorFunction } from "util/types";
 
 class HttpClientAdapter implements HttpClient {
     private axiosInstance: AxiosInstance | null = null
