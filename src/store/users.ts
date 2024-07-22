@@ -10,10 +10,10 @@ export const useUsersStore = defineStore('users', {
         users: [] as User[]
     }),
     getters: {
-        hasUsers: (state) => state.users.length > 0 
+        hasUsers: (state): boolean => state.users.length > 0 
     },
     actions: {
-        async auth(email: string, password: string): Promise<any> {
+        async auth(email: string, password: string): Promise<Response> {
             return await UserGateway.login(email, password)
         },
         async getMe(): Promise<void> {
