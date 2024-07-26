@@ -3,6 +3,7 @@ import ForgotPassword from "../pages/auth/ForgotPassword.vue";
 import AuthTemplate from "../layouts/AuthTemplate.vue";
 import DefaultTemplate from "../layouts/DefaultTemplate.vue";
 import HomeAdmin from "../pages/admin/home/HomeAdmin.vue";
+import ListUsers from "../pages/users/ListUsers.vue";
 
 export default [
   {
@@ -30,7 +31,11 @@ export default [
         component: HomeAdmin,
         name: "admin.home",
       },
-     
+      {
+        path: "users",
+        component: ListUsers,
+        name: "users.list",
+      },
     ],
   },
 ];
